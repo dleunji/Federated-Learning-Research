@@ -83,6 +83,7 @@ class GRPCCommManager(BaseCommunicationManager):
     def handle_receive_message(self):
         thread = threading.Thread(target=self.message_handling_subroutine)
         thread.start()
+        thread.join()
 
     def message_handling_subroutine(self):
         while self.is_running:
